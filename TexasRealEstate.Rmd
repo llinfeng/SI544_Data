@@ -1,0 +1,22 @@
+```{r}
+# install.packages("rvest")
+library(rvest)
+```
+
+```{r}
+
+simple <- read_html("https://www.recenter.tamu.edu/data/housing-activity/#!/activity/State/Texas")
+```
+
+```{r}
+library(magrittr)
+simple %>%
+    html_nodes("table") %>%
+    extract2(2) %>%
+    html_table(fill=TRUE)
+```
+
+
+# Source
+[Mozilla Firefox](https://www.recenter.tamu.edu/data/housing-activity/#!/activity/State/Texas)
+
